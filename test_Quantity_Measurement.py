@@ -19,3 +19,6 @@ def test_givenOnefloatValueOneFeetObjectOfSameValues_WhenFeetvalueCheckedforEqua
     with pytest.raises(TypeError):
         length1 == length2
 
+def test_givenOneFeetObject_WhenCheckedIfNone_ShouldReturnFalse():
+    length1 = Feet(0.0)
+    assert (None == length1) == False
