@@ -1,7 +1,10 @@
 class Feet:
 
     def __init__(self, feet):
-        self.feet = float(feet)
+        self.feet_value = float(feet)
 
     def __eq__(self, other):
-        return self.feet == other.feet
+        if isinstance(other, Feet):
+            return self.feet_value == other.feet_value
+        else:
+            raise TypeError
