@@ -7,4 +7,7 @@ class Feet:
         if isinstance(other, Feet):
             return self.feet_value == other.feet_value
         else:
-            raise TypeError
+            if other == None:
+                return False
+            else:
+                raise TypeError
