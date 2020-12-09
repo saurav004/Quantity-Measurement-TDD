@@ -1,4 +1,4 @@
 .idea
 venv
-main.py
+QuantityClasses/main.py
 __pycache__

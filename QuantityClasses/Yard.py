@@ -4,7 +4,7 @@ class Yard:
         self.yard_value = yard
 
     def __eq__(self, other):
-        if other == None:
+        if other is None:
             return False
         elif isinstance(other, Yard):
             return self.yard_value == other.yard_value

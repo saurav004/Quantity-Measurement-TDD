@@ -1,7 +1,8 @@
 import pytest
-from Feet import Feet
-from Inch import Inch
-from Yard import Yard
+
+from QuantityClasses.Feet import Feet
+from QuantityClasses.Inch import Inch
+from QuantityClasses.Yard import Yard
 
 
 @pytest.fixture
@@ -81,7 +82,8 @@ def test_givenOnefloatValueOneInchObjectOfSameValues_WhenFeetvalueCheckedforEqua
     with pytest.raises(TypeError):
         length1 == length2
 
-def test_givenOneObjectOfFeetAndOneInch_WHenCompared_shouldReturnTrue():
+
+def test_givenOneInchObjectandONeFeetObject_WhenCompared_ShouldreturnExpected():
     length1 = Feet(1.0)
     length2 = Inch(12.0)
-    assert length1 == length2
+    assert length2 == length1

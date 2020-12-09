@@ -4,10 +4,13 @@ class Feet:
         self.feet_value = float(feet)
 
     def __eq__(self, other):
-        if  other == None:
+        from QuantityClasses.Inch import Inch
+        if other is None:
             return False
         elif isinstance(other, Feet):
             return self.feet_value == other.feet_value
+        elif isinstance(other, Inch):
+            return self.feet_value == other.inch_value/12
         else:
             raise TypeError
 
