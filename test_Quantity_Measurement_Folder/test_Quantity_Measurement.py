@@ -103,3 +103,9 @@ def test_givenOneFeetObjectandOneYardObject_WhenCompared_ShouldreturnFalseHere()
     length1 = Feet(1.0)
     length2 = Yard(1.0)
     assert length1 != length2
+
+
+def test_givenOneYard36Inch_WhenCompared_ShouldReturnTrue():
+    length1 = Yard(1.0)
+    length2 = Inch(36.0)
+    assert length1 == length2
