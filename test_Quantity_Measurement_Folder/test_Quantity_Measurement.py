@@ -28,11 +28,9 @@ def test_GivenTwoObjectsOfSameClassAndValue_WhenCheckedForEquality_ShouldReturnT
     assert (length1 == length2)
 
 
-@pytest.mark.parametrize("length1, length2", [
-    (feet_object, feet_object),
-    (yard_object, yard_object),
-    (inch_object, inch_object)])
-def test_GivenTwoReferenceOfSameClassObject_WhenCheckedForEquality_ShouldReturnTrue(length1, length2):
+def test_GivenTwoReferenceOfSameClassObject_WhenCheckedForEquality_ShouldReturnTrue():
+    length1 = Feet(1.0)
+    length2 = length1
     assert (length1 == length2)
 
 
@@ -83,7 +81,7 @@ def test_givenOnefloatValueOneInchObjectOfSameValues_WhenFeetvalueCheckedforEqua
         length1 == length2
 
 
-def test_givenOneInchObjectandONeFeetObject_WhenCompared_ShouldreturnExpected():
+def test_givenOneInchObjectandOneFeetObject_WhenCompared_ShouldreturnExpected():
     length1 = Feet(1.0)
     length2 = Inch(12.0)
     assert length2 == length1
