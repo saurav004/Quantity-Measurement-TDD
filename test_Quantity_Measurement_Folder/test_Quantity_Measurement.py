@@ -1,8 +1,6 @@
-from copy import copy
-
 import pytest
 
-from QualityMeaurementServices.LengthConversionOrCopmarision import LengthUtility
+from QuantityMeaurementServices.LengthConversionOrCopmarision import LengthUtility
 from QuantityClasses.Centimeter import Centimeter
 from QuantityClasses.Feet import Feet
 from QuantityClasses.Inch import Inch

@@ -1,6 +1,4 @@
 
-
-
 class LengthUtility:
 
     @classmethod
@@ -23,3 +21,7 @@ class LengthUtility:
     @classmethod
     def check_equality(cls, obj1, obj2):
         return cls.convert_to_inch(obj1) == cls.convert_to_inch(obj2)
+
+    @classmethod
+    def add(cls, length1, length2):
+        return cls.convert_to_inch(length1) + cls.convert_to_inch(length1)

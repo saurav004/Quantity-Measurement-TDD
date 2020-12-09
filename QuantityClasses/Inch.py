@@ -1,4 +1,4 @@
-from QualityMeaurementServices.LengthConversionOrCopmarision import LengthUtility
+from QuantityMeaurementServices.LengthConversionOrCopmarision import LengthUtility
 from QuantityClasses.Feet import Feet
 from QuantityClasses.Yard import Yard
 
