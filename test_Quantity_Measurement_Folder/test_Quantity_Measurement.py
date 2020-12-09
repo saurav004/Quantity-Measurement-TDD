@@ -1,5 +1,6 @@
 import pytest
 
+from QuantityClasses.Centimeter import Centimeter
 from QuantityClasses.Feet import Feet
 from QuantityClasses.Inch import Inch
 from QuantityClasses.Yard import Yard
@@ -119,3 +120,9 @@ def test_given1Yard3Feet_WhenCompared_ShouldReturnTrue():
     length1 = Yard(1.0)
     length2 = Feet(3.0)
     assert length2 == length1
+
+
+def test_Given2InchAnd5Cm_WhenComparedForEquality_ShouldReturnFalse():
+    length1 = Inch(2)
+    length2 = Centimeter(5)
+    assert length1 != length2
