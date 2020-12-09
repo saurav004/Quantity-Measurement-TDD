@@ -1,3 +1,6 @@
+from QuantityClasses.Yard import Yard
+
+
 class Feet:
 
     def __init__(self, feet):
@@ -11,8 +14,11 @@ class Feet:
             return self.feet_value == other.feet_value
         elif isinstance(other, Inch):
             return self.feet_value == other.inch_value/12
+        elif isinstance(other, Yard):
+            return self.feet_value == other.yard_value*3
         else:
             raise TypeError
 
     def __str__(self):
         return str(self.feet_value) + " Feet"
+
