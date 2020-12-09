@@ -132,3 +132,9 @@ def test_GivenTwoInchObjectsOfValue2Inch_WhenAdded_ShouldGiveExpectedValue():
     length1 = Inch(2.0)
     length2 = Inch(2.0)
     assert Inch(LengthUtility.add(length1, length2)) == Inch(4.0)
+
+
+def test_GivenTwoFeetObjectsofValue1Each_WhenAdded_ShouldGiveExpectedValue():
+    length1 = Feet(1.0)
+    length2 = Feet(1.0)
+    assert Inch(LengthUtility.add(length1, length2)) == Inch(24)
