@@ -10,3 +10,6 @@ class Feet:
             return self.feet_value == other.feet_value
         else:
             raise TypeError
+
+    def __str__(self):
+        return str(self.feet_value) + " Feet"
