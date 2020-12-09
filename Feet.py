@@ -4,10 +4,9 @@ class Feet:
         self.feet_value = float(feet)
 
     def __eq__(self, other):
-        if isinstance(other, Feet):
+        if  other == None:
+            return False
+        elif isinstance(other, Feet):
             return self.feet_value == other.feet_value
         else:
-            if other == None:
-                return False
-            else:
-                raise TypeError
+            raise TypeError
