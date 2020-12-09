@@ -80,3 +80,8 @@ def test_givenOnefloatValueOneInchObjectOfSameValues_WhenFeetvalueCheckedforEqua
     length2 = float(0.0)
     with pytest.raises(TypeError):
         length1 == length2
+
+def test_givenOneObjectOfFeetAndOneInch_WHenCompared_shouldReturnTrue():
+    length1 = Feet(1.0)
+    length2 = Inch(12.0)
+    assert length1 == length2
