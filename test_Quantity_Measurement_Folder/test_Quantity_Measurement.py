@@ -87,3 +87,9 @@ def test_givenOneInchObjectandONeFeetObject_WhenCompared_ShouldreturnExpected():
     length1 = Feet(1.0)
     length2 = Inch(12.0)
     assert length2 == length1
+
+
+def test_givenOneFeetObjectandOneYardObject_WhenCompared_ShouldreturnExpected():
+    length1 = Feet(3.0)
+    length2 = Yard(1.0)
+    assert length2 == length1
