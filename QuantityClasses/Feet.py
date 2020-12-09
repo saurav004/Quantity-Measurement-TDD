@@ -1,4 +1,4 @@
-from QuantityClasses.Yard import Yard
+from QualityMeaurementServices.LengthConversionOrCopmarision import LengthUtility
 
 
 class Feet:
@@ -7,17 +7,10 @@ class Feet:
         self.feet_value = float(feet)
 
     def __eq__(self, other):
-        from QuantityClasses.Inch import Inch
         if other is None:
             return False
-        elif isinstance(other, Feet):
-            return self.feet_value == other.feet_value
-        elif isinstance(other, Inch):
-            return self.feet_value == other.inch_value/12
-        elif isinstance(other, Yard):
-            return self.feet_value == other.yard_value*3
         else:
-            raise TypeError
+            return LengthUtility.check_equality(self, other)
 
     def __str__(self):
         return str(self.feet_value) + " Feet"

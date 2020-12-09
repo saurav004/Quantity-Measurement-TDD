@@ -1,12 +1,13 @@
 from QualityMeaurementServices.LengthConversionOrCopmarision import LengthUtility
 from QuantityClasses.Feet import Feet
+from QuantityClasses.Inch import Inch
 from QuantityClasses.Yard import Yard
 
 
-class Inch:
+class Centimeter:
 
     def __init__(self, inch):
-        self.inch_value = float(inch)
+        self.centimeter_value = float(inch)
 
     def __eq__(self, other):
         if other is None:
@@ -15,4 +16,4 @@ class Inch:
             return LengthUtility.check_equality(self, other)
 
     def __str__(self):
-        return str(self.inch_value) + " Inch"
+        return str(self.centimeter_value) + " centimeter"
