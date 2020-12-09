@@ -1,4 +1,5 @@
 from QuantityClasses.Feet import Feet
+from QuantityClasses.Yard import Yard
 
 
 class Inch:
@@ -13,6 +14,8 @@ class Inch:
             return self.inch_value == other.inch_value
         elif isinstance(other, Feet):
             return self.inch_value == other.feet_value*12
+        elif isinstance(other, Yard):
+            return self.inch_value == other.yard_value*3*12
         else:
             raise TypeError
 
