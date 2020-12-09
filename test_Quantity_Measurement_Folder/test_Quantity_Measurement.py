@@ -1,5 +1,8 @@
+from copy import copy
+
 import pytest
 
+from QualityMeaurementServices.LengthConversionOrCopmarision import LengthUtility
 from QuantityClasses.Centimeter import Centimeter
 from QuantityClasses.Feet import Feet
 from QuantityClasses.Inch import Inch
@@ -126,3 +129,8 @@ def test_Given2InchAnd5Cm_WhenComparedForEquality_ShouldReturnFalse():
     length1 = Inch(2)
     length2 = Centimeter(5)
     assert length1 != length2
+
+def test_GivenTwoInchObjectsOfValue2Inch_WhenAdded_ShouldGiveExpectedValue():
+    length1 = Inch(2.0)
+    length2 = Inch(2.0)
+    assert Inch(LengthUtility.add(length1, length2)) == Inch(4.0)
