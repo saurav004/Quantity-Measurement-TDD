@@ -126,7 +126,7 @@ def test_given1Yard3Feet_WhenCompared_ShouldReturnTrue():
 def test_Given2InchAnd5Cm_WhenComparedForEquality_ShouldReturnFalse():
     length1 = Inch(2)
     length2 = Centimeter(5)
-    assert length1 != length2
+    assert length1 == length2
 
 def test_GivenTwoInchObjectsOfValue2Inch_WhenAdded_ShouldGiveExpectedValue():
     length1 = Inch(2.0)
@@ -138,3 +138,9 @@ def test_GivenTwoFeetObjectsofValue1Each_WhenAdded_ShouldGiveExpectedValue():
     length1 = Feet(1.0)
     length2 = Feet(1.0)
     assert Inch(LengthUtility.add(length1, length2)) == Inch(24)
+
+
+def test_GivenInchObjectand2andHalfcmObject_WhenAdded_ShouldGiveExpectedValue():
+    length1 = Inch(2.0)
+    length2 = Centimeter(2.5)
+    assert Inch(LengthUtility.add(length1, length2)) == Inch(3.0)

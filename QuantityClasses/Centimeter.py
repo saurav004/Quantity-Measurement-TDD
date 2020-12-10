@@ -1,7 +1,6 @@
 from QuantityMeaurementServices.LengthConversionOrCopmarision import LengthUtility
 
 
-
 class Centimeter:
 
     def __init__(self, inch):
