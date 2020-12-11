@@ -18,9 +18,11 @@ class QuantityCalculator:
         base_of_measurement = {
             "volume": QuantityEnum.MILLILITER,
             "length": QuantityEnum.INCH,
+            "weight": QuantityEnum.KILOGRAM
         }
         if self.__unit.measureOf == other.__unit.measureOf:
-            return QuantityCalculator(base_of_measurement[self.__unit.measureOf], self.__unit.convert_to_inch(self.__value)
+            return QuantityCalculator(base_of_measurement[self.__unit.measureOf],
+                                      self.__unit.convert_to_inch(self.__value)
                                       + other.__unit.convert_to_inch(other.__value))
 
 
@@ -32,6 +34,9 @@ class QuantityEnum(enum.Enum):
     GALLON = (3780, "volume")
     LITER = (1000, "volume")
     MILLILITER = (1, "volume")
+    TONNE = (1000, "weight")
+    GRAM = (0.001, "weight")
+    KILOGRAM = (1, "weight")
 
     def __init__(self, unit, measure_of):
         self.unit = unit

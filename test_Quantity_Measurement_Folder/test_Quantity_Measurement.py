@@ -103,7 +103,7 @@ def test_given36InchOneYard_WhenCompared_ShouldReturnTrue():
     assert QuantityCalculator(QuantityEnum.INCH, 36.0) == QuantityCalculator(QuantityEnum.YARD, 1.0)
 
 
-def test_givenOneFeetObjectandOneYardObject_WhenCompared_ShouldreturnExpected():
+def test_givenOneFeetObjectandOneYardObjectOfvalue1_WhenCompared_ShouldreturnExpected():
     assert QuantityCalculator(QuantityEnum.YARD, 1.0) == QuantityCalculator(QuantityEnum.FEET, 3.0)
 
 
@@ -142,13 +142,27 @@ def test_Given1GallonAnd3point78Litres_WhenCompared_ShouldGiveExpectedValue(volu
     assert volume1 == volume2
 
 
-@pytest.mark.parametrize("length1,length2,expected", [
+@pytest.mark.parametrize("volume1,volume2,expected", [
     (QuantityCalculator(QuantityEnum.GALLON, 1.0),
      QuantityCalculator(QuantityEnum.LITER, 3.78),
      QuantityCalculator(QuantityEnum.LITER, 7.56)),
-
     (QuantityCalculator(QuantityEnum.LITER, 1.0),
      QuantityCalculator(QuantityEnum.MILLILITER, 1000),
      QuantityCalculator(QuantityEnum.LITER, 2))])
-def test_GivenTwoVolume_WhenAdded_ShouldReturnExpected(length1, length2, expected):
-    assert length1 + length2 == expected
+def test_GivenTwoVolume_WhenAdded_ShouldReturnExpected(volume1, volume2, expected):
+    assert volume1 + volume2 == expected
+
+
+@pytest.mark.parametrize("weight1, weight2", [
+    (QuantityCalculator(QuantityEnum.KILOGRAM, 1.0), QuantityCalculator(QuantityEnum.GRAM, 1000)),
+    (QuantityCalculator(QuantityEnum.TONNE, 1.0), QuantityCalculator(QuantityEnum.KILOGRAM, 1000))])
+def test_GivenTwoWieghtQuantities_WhenCompared_ShouldReturnExpectedBoolean(weight1, weight2):
+    assert weight1 == weight2
+
+
+@pytest.mark.parametrize("weight1,weight2,expected", [
+    (QuantityCalculator(QuantityEnum.TONNE, 1.0),
+     QuantityCalculator(QuantityEnum.GRAM, 1000),
+     QuantityCalculator(QuantityEnum.KILOGRAM, 1001))])
+def test_GivenTwoWieghtQuantities_WhenCompared_ShouldReturnExpected(weight1, weight2, expected):
+    assert weight1 + weight2 == expected
