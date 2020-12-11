@@ -135,12 +135,11 @@ def test_Given2InchObjectand2andHalfcmObject_WhenAdded_ShouldGiveExpectedValue()
     assert (length1 + length2) == QuantityCalculator(QuantityEnum.INCH, 3.0)
 
 
-def test_Given1GallonAnd3point78Litres_WhenCompared_ShouldGiveExpectedValue():
-    assert QuantityCalculator(QuantityEnum.GALLON, 1.0) == QuantityCalculator(QuantityEnum.LITER, 3.78)
-
-
-def test_Given1LiterAnd1000Ml_WhenCompared_ShouldGiveExpectedValue():
-    assert QuantityCalculator(QuantityEnum.LITER, 1.0) == QuantityCalculator(QuantityEnum.MILLILITER, 1000)
+@pytest.mark.parametrize("volume1, volume2", [
+    (QuantityCalculator(QuantityEnum.GALLON, 1.0), QuantityCalculator(QuantityEnum.LITER, 3.78)),
+    (QuantityCalculator(QuantityEnum.LITER, 1.0), QuantityCalculator(QuantityEnum.MILLILITER, 1000))])
+def test_Given1GallonAnd3point78Litres_WhenCompared_ShouldGiveExpectedValue(volume1, volume2):
+    assert volume1 == volume2
 
 
 @pytest.mark.parametrize("length1,length2,expected", [
