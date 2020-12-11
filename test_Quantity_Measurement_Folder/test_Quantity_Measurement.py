@@ -1,8 +1,6 @@
 import pytest
 
-
 from QuantityMeaurementServices.QuantityCalculations import QuantityCalculator, QuantityEnum
-
 
 
 @pytest.fixture
@@ -118,6 +116,7 @@ def test_GivenTwoInchObjectsOfValue2Inch_WhenAdded_ShouldGiveExpectedValue():
     length2 = QuantityCalculator(QuantityEnum.INCH, 2.0)
     assert (length1 + length2) == QuantityCalculator(QuantityEnum.INCH, 4.0)
 
+
 def test_GivenOneFeetAnd2Inch_WhenAdded_ShouldGiveExpectedValue():
     length1 = QuantityCalculator(QuantityEnum.FEET, 1.0)
     length2 = QuantityCalculator(QuantityEnum.INCH, 2.0)
@@ -134,4 +133,12 @@ def test_Given2InchObjectand2andHalfcmObject_WhenAdded_ShouldGiveExpectedValue()
     length1 = QuantityCalculator(QuantityEnum.INCH, 2.0)
     length2 = QuantityCalculator(QuantityEnum.CENTIMETER, 2.5)
     assert (length1 + length2) == QuantityCalculator(QuantityEnum.INCH, 3.0)
+
+
+def test_Given1GallonAnd3point78Litres_WhenCompared_ShouldGiveExpectedValue():
+    assert QuantityCalculator(QuantityEnum.GALLON, 1.0) == QuantityCalculator(QuantityEnum.LITER, 3.78)
+
+
+def test_Given1LiterAnd1000Ml_WhenCompared_ShouldGiveExpectedValue():
+    assert QuantityCalculator(QuantityEnum.LITER, 1.0) == QuantityCalculator(QuantityEnum.MILLILITER, 1000)
 
