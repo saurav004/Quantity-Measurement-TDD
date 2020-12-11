@@ -15,8 +15,12 @@ class QuantityCalculator:
         return False
 
     def __add__(self, other):
+        base_of_measurement = {
+            "volume": QuantityEnum.MILLILITER,
+            "length": QuantityEnum.INCH,
+        }
         if self.__unit.measureOf == other.__unit.measureOf:
-            return QuantityCalculator(QuantityEnum.INCH, self.__unit.convert_to_inch(self.__value)
+            return QuantityCalculator(base_of_measurement[self.__unit.measureOf], self.__unit.convert_to_inch(self.__value)
                                       + other.__unit.convert_to_inch(other.__value))
 
 

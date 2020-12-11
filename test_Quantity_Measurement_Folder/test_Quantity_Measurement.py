@@ -142,3 +142,14 @@ def test_Given1GallonAnd3point78Litres_WhenCompared_ShouldGiveExpectedValue():
 def test_Given1LiterAnd1000Ml_WhenCompared_ShouldGiveExpectedValue():
     assert QuantityCalculator(QuantityEnum.LITER, 1.0) == QuantityCalculator(QuantityEnum.MILLILITER, 1000)
 
+
+@pytest.mark.parametrize("length1,length2,expected", [
+    (QuantityCalculator(QuantityEnum.GALLON, 1.0),
+     QuantityCalculator(QuantityEnum.LITER, 3.78),
+     QuantityCalculator(QuantityEnum.LITER, 7.56)),
+
+    (QuantityCalculator(QuantityEnum.LITER, 1.0),
+     QuantityCalculator(QuantityEnum.MILLILITER, 1000),
+     QuantityCalculator(QuantityEnum.LITER, 2))])
+def test_GivenTwoVolume_WhenAdded_ShouldReturnExpected(length1, length2, expected):
+    assert length1 + length2 == expected
