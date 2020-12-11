@@ -166,3 +166,8 @@ def test_GivenTwoWieghtQuantities_WhenCompared_ShouldReturnExpectedBoolean(weigh
      QuantityCalculator(QuantityEnum.KILOGRAM, 1001))])
 def test_GivenTwoWieghtQuantities_WhenCompared_ShouldReturnExpected(weight1, weight2, expected):
     assert weight1 + weight2 == expected
+
+
+def test_Given212FahrenheitAnd100Celsius_WhenCompared_ShouldReturnTrue():
+    assert QuantityCalculator(QuantityEnum.FAHRENHEIT, 212) == QuantityCalculator(QuantityEnum.CELSIUS, 100)
+

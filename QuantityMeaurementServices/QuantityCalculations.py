@@ -11,19 +11,20 @@ class QuantityCalculator:
         if isinstance(other, QuantityCalculator) and isinstance(self.__unit, QuantityEnum) and isinstance(other.__unit,
                                                                                                           QuantityEnum):
             if self.__unit.measureOf == other.__unit.measureOf:
-                return self.__unit.convert_to_inch(self.__value) == other.__unit.convert_to_inch(other.__value)
+                return self.__unit.convert_to_base_unit(self.__value) == other.__unit.convert_to_base_unit(other.__value)
         return False
 
     def __add__(self, other):
         base_of_measurement = {
             "volume": QuantityEnum.MILLILITER,
             "length": QuantityEnum.INCH,
-            "weight": QuantityEnum.KILOGRAM
+            "weight": QuantityEnum.KILOGRAM,
+            "temperature": QuantityEnum.CELSIUS
         }
         if self.__unit.measureOf == other.__unit.measureOf:
             return QuantityCalculator(base_of_measurement[self.__unit.measureOf],
-                                      self.__unit.convert_to_inch(self.__value)
-                                      + other.__unit.convert_to_inch(other.__value))
+                                      self.__unit.convert_to_base_unit(self.__value)
+                                      + other.__unit.convert_to_base_unit(other.__value))
 
 
 class QuantityEnum(enum.Enum):
@@ -37,10 +38,15 @@ class QuantityEnum(enum.Enum):
     TONNE = (1000, "weight")
     GRAM = (0.001, "weight")
     KILOGRAM = (1, "weight")
+    CELSIUS = (1, "temperature")
+    FAHRENHEIT = (0.5555, "temperature", True)
 
-    def __init__(self, unit, measure_of):
+    def __init__(self, unit, measure_of, is_fahrenheit=False):
+        self.is_fahrenheit = is_fahrenheit
         self.unit = unit
         self.measureOf = measure_of
 
-    def convert_to_inch(self, value):
+    def convert_to_base_unit(self, value):
+        if self.is_fahrenheit:
+            return round((value - 32) * self.unit)
         return self.unit * value
